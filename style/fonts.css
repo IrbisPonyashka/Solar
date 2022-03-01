@@ -1,0 +1,16 @@
+@font-face {
+    font-family:'NSR' ;
+    src: url(../fonts/NotoSans-Regular.ttf);
+}
+@font-face {
+    font-family: 'NSB';
+    src: url(../fonts/NotoSans-Bold.ttf);
+}
+@font-face {
+    font-family: 'RR';
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: 'NSBI';
+    src: url(../fonts/NotoSans-BoldItalic.ttf);
+}

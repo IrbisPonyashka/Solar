@@ -20,6 +20,18 @@ body {
     font-family: var(--NSR);
     background: var(--white);
 }
+body.light {
+    --white:#ffffff;
+    --black:#000;
+    --greyDark:#303030;
+    --grey:#868585;
+}
+body.dark {
+    --white:#292929;
+    --black:#fff;
+    --greyDark:#ffff;
+    --grey:#ffff;
+}
 :root {
     --NSR : 'NSR';
     --NSB: 'NSB';
@@ -55,20 +67,23 @@ body {
     transition: all 0.3s;
     box-shadow: inset 0 0 10px 0 black;
 }
-.btn {
+.btn{
     width: 35px;
     height: 35px;
     border: none;
     border-radius: 28px;
     background: var(--white);
     position: absolute;
-    right: 58%;
-    top: -15%;
+    /* right: 58%;*/
+    top: -15%; 
     box-shadow: 0 0 10px 0 var(--greyDark);
-    transition-duration: 500ms;
+    transition:all 500ms ease;
     z-index: 1;
 }
-.active{
+.btn.right{
+    right: 58%;
+}
+.btn.left{
     right: -3%;
 }
 /*  */

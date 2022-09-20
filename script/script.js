@@ -40,3 +40,59 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
 })
+
+
+class Scroll {
+  constructor({element,range,unit}) {
+      if(typeof element == 'string'){
+          this.el = document.querySelector(element);
+      }else if(element instanceof HTMLElement){
+          this.el = element
+      } 
+      
+      if(window.innerWidth <= 780 && window.innerWidth > 420){
+        this.top = 100
+      }else if(window.innerWidth <= 420){
+        this.top = 80
+      }else{
+          this.top = 140; 
+      }
+
+      this.el.style.position = 'fixed';
+      this.unit = unit;
+      this.el.style.top = this.scrollNumber() + 'px';
+      window.addEventListener('scroll', () => this.scroll())
+      window.addEventListener('resize', () => this.scroll())
+      console.log(this.top);
+  }
+  
+  scroll() {
+      
+      this.scrollUnit = this.scrollNumber();
+      
+      if(this.scrollUnit - scrollY > 0) {
+          this.el.style.top = this.scrollUnit - scrollY + 'px'
+          this.el.style.right = '5%'
+      }else {
+          this.el.style.right = '5%'
+          this.el.style.top = 10;
+      }
+  }
+  scrollNumber() {
+      if(this.unit == 'px') {
+          return this.top >= 0 ? this.top : 0;
+      }else if(this.unit == '%' || this.unit == undefined){
+          return this.calc(window.innerHeight,this.top) -  this.el.clientHeight
+      }
+  }
+  calc(height,top){
+      return height / 100 * top
+  }
+  
+}
+
+let myScroll = new Scroll({
+  element: '.toggle',
+  range: 140,
+  unit: '%'
+});
